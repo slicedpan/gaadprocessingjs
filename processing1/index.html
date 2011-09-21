@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../processing-1.3.0.js"></script>
+	</head>
+	<body>		
+		<canvas width="800" height="800" id="procCanvas"></canvas>
+		<script type="text/javascript">
+			function sketchProc (processing)
+			{
+				processing.size (800, 800);
+				var i = 0;
+				var boxX = 20;
+				var boxY = 20;
+				var boxDx = 1;
+				var boxDy = 1;
+				
+				processing.draw = function ()
+				{
+					boxX += boxDx;
+					boxY += boxDy;
+					if (boxX  + 40 >= 800 || boxX <= 0)
+					{
+						boxDx *= -1;
+					}
+					if (boxY + 40 >= 800 || boxY <= 0)
+					{
+						boxDy *= -1;
+					}
+					processing.fill(processing.random(255), processing.random(255), processing.random(255));
+					processing.rect(processing.mouseX - 20, processing.mouseY - 20, 40, 40);
+				}
+				processing.println ("blah");
+			};
+			var canvas = document.getElementById("procCanvas");
+			var p = new Processing (canvas, sketchProc);
+		</script>
+	</body>
+</html>

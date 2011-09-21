@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../processing-1.3.0.js"></script>
+	</head>
+	<body>		
+		<canvas width="800" height="800" id="procCanvas"></canvas>
+		<script type="text/javascript">						
+			
+			function sketchProc (processing)
+			{
+				var numBoxes = 500;
+				function Box (x, y, r, g, b, time)
+				{
+					this.x = x;
+					this.y = y;
+					this.r = r;
+					this.g = g;
+					this.b = b;		
+					this.alpha = 255;		
+					this.startTime = time;
+					this.update = function ()
+					{
+						this.alpha -= 255 / numBoxes;
+					};
+					this.draw = function ()
+					{
+						processing.fill (this.r, this.g, this.b, this.alpha);
+						processing.rect (this.x - 20, this.y - 20, 40, 40);
+					};				
+				};				
+			
+			var boxes = new Array();
+			for (var i = 0; i < numBoxes; ++i)
+			{
+				boxes[i] = new Box (0, 0, 0, 0, 0, 0)
+			}
+			var counter = 0;
+				
+				processing.size (800, 800);
+				
+				processing.draw = function ()
+				{
+					processing.background (25);
+					boxes[counter].x = processing.mouseX;
+					boxes[counter].y = processing.mouseY;
+					boxes[counter].r = processing.random(255);
+					boxes[counter].g = processing.random(255);
+					boxes[counter].b = processing.random(255);
+					boxes[counter].alpha = 255;
+					boxes[counter].startTime = processing.millis();
+					++counter;
+					if (counter >= numBoxes)
+					{
+						counter = 0;
+					}
+					for (var i = 0; i < numBoxes; ++i)
+					{
+						boxes[i].update ();
+						boxes[i].draw ();
+					}
+				}
+				processing.println ("blah");
+			};
+			var canvas = document.getElementById("procCanvas");
+			var p = new Processing (canvas, sketchProc);
+		</script>
+	</body>
+</html>
