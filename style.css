@@ -1,0 +1,66 @@
+body {
+	font-family: Arial, "MS Trebuchet", sans-serif;
+}
+
+ol {
+	list-style: none;
+	padding-left: 0px;
+}
+
+ol li {
+	margin-top: 5px;	
+}
+
+ol li a {
+	width: 200px;
+	margin: auto;
+	color: #000000;
+	background-color: #d4967f;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-decoration: none;
+}
+
+ol li a:hover {
+	color: #FFFFFF;
+}
+
+#content {
+	width: 806px;
+	margin: auto;
+}
+
+#header {
+	width: 800px;
+	height: 120px;
+	margin: auto;
+	background: url(boxesimg.png) no-repeat;
+	border-style: groove;
+	border-radius: 3px;
+	border-color: #AAAAAA;
+}
+
+#header h1 {
+	margin-top: 0px;
+	font-family: Arial, "MS Trebuchet", sans-serif;
+	color: #FFFFFF;
+	padding-left: 5px;
+}
+
+#content .entry {
+	border-style: groove;
+	border-radius: 3px;
+	border-color: #AAAAAA;
+	margin-top: 35px;
+	padding-left: 20px;
+}
+
+.entryheader {
+	padding-left: 3px;
+	background: url(h2banner.png) no-repeat;
+	color: #FFFFFF;
+}
+
+.smallProcBanner {
+	margin-top: 15px;
+}
